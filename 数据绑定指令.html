@@ -14,6 +14,9 @@
         <!-- v-html 解析文本和标签 -->
         <p v-html="coffe"></p>
         <!-- {{}} 为v-text简写 可做拼接 -->
+        <h3>指令语法</h3>
+        <a v-bind:href="url">bilibili</a>
+        <a :href="url">哔哩哔哩</a>
     </div>
     <script>
         var vm=new Vue({
@@ -21,7 +24,8 @@
             data() {
                 return {
                     msg:'Vue.js',
-                    coffe:'<strong>咖啡</strong> 45.00'
+                    coffe:'<strong>咖啡</strong> 45.00',
+                    url:'https://www.bilibili.com/',
                 }
             },
         })
