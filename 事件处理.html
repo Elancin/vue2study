@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Document</title>
     <script src="./js/vue.js"></script>
 </head>
+
 <body>
     <div id="app">
         <p>欢迎</p>
@@ -15,22 +17,23 @@
     </div>
     <script>
         new Vue({
-            el:'#app',
+            el: '#app',
             data() {
                 return {
-                   
                 }
             },
             methods: {
-                showInfo(){
+                showInfo() {
                     alert('hello');
                 },
-                showInfo2(number,a){
+                showInfo2(number, a) {
                     alert(number);
                     console.log(a);
                 }
             },
         })
+
     </script>
 </body>
+
 </html>
