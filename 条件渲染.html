@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 所有v-show条件渲染 -->
+        <!-- <h2 v-show="false">Wellcome{{co1}} </h2> -->
+        <!-- <h2 v-show="1===1">Wellcome{{co1}} </h2> -->
+        <!-- 所有v-if条件渲染 -->
+        <!-- <h2 v-if="false">Wellcome{{co1}} </h2> -->
+        <!-- <h2 v-if="1===1">Wellcome{{co1}} </h2> -->
+        <h2>n值:{{n}} </h2>
+        <button @click="n++">click</button>
+        <!-- <div v-show="n===1">1</div>
+        <div v-show="n===2">2</div>
+        <div v-show="n===3">3</div> -->
+        
+        <template v-if="n===1"><!--template 只能使用v-if 不能用v-show  -->
+            <h2>1</h2>
+            <h2>2</h2>
+            <h2>3</h2>
+        </template>
+
+
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    co1: "GF",
+                    n: 0,
+                }
+            },
+            methods: {
+
+            },
+        })
+    </script>
+</body>
+
+</html>
