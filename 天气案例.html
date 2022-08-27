@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h3>天气{{info}}</h3>
+        <button @click="change()">点击</button>
+        <button @click="isHot=!isHot">点击1</button>
+    </div>
+    <script>
+             const vm = new Vue({
+                    el:'#app',
+                    data() {
+                        return {
+                            isHot:true,
+                        }
+                    },
+                    computed: {
+                        info(){
+                            return this.isHot ? "炎热" : "凉爽"
+                        }
+                    },
+                    methods: {
+                        change(){
+                            this.isHot=!this.isHot
+                        }
+                    },
+                    // 监视
+                    watch:{
+                        isHot:{
+                            handler(){
+                                console.log("asdas");
+                            }
+                        }
+                    }
+                })
+    </script>
+</body>
+</html>
