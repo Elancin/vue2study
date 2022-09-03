@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="student.age++">age+1</button>
+        <button @click="addSex">添加性别</button>
+        <button @click="addFriend">添加朋友</button>
+        <button @click="updateHobby">修改爱好</button>
+        <h3>姓名{{student.name}} </h3>
+        <h3>年龄{{student.age}} </h3>
+        <h3 v-if="student.sex">性别{{student.sex}} </h3>
+        <h3>爱好 <ul>
+                <li v-for="(h,index) in student.hobby" :key="index">
+                    {{h}}
+                </li>
+            </ul>
+        </h3>
+        <h3>朋友</h3>
+        <ul>
+            <li v-for="(f,key) in student.friends" :key="key">
+                {{f.name}}-{{f.age}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    student: {
+                        name: 'tom',
+                        age: 18,
+                        hobby: ['1', '2', '3'],
+                        friends: [
+                            { name: 'jerry', age: 30 },
+                            { name: 'tony', age: 35 }
+                        ]
+                    }
+                }
+            },
+            methods: {
+                addSex(){
+                    Vue.set(this.student,'sex','男')
+                    // this.$set(this.student,'sex','男')
+                },
+                addFriend(){
+                    this.student.friends.unshift({name: 'jack', age: 38})
+                },
+                updateHobby(){
+                    Vue.set(this.student.hobby,0,'4')
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
