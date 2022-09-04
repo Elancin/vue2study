@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2 :style="{opacity}" >欢迎</h2>
+        <button @click="stop">停止</button>
+    </div>
+    <script>
+             const vm = new Vue({
+                    el:'#app',
+                    data() {
+                        return {
+                            opacity:1,
+                        }
+                    },
+                    methods: {
+                        stop(){
+                            vm.$destroy()
+                        }
+                    },
+                    mounted() {//挂载
+                        this.timer=setInterval(()=>{
+                            this.opacity -= 0.01
+                            if(this.opacity<=0){
+                                this.opacity=1
+                            }
+                        },16)
+                    },
+                    beforeDestroy() {
+                        clearInterval(this.timer)
+                    },
+                })
+    </script>
+</body>
+</html>
